@@ -1,4 +1,4 @@
-# 🐦 TwitStats
+# 🐝 TwitStats
 [![license][license]][LICENSE]
 [![deps][deps]][deps-url]
 
@@ -22,19 +22,19 @@ git clone https://github.com/hugmanrique/Emjr.git
 
 Open up the new created directory and open the `config.json` file. We will need to create a Twitter API app by clicking 'Create New App' on [apps.twitter.com](https://apps.twitter.com/).
 
-Set a name, a URL (could be your Twitter URL/Youtube channel) and a description. Next, go to the 'Keys and Access Tokens' tab. Copy the Consumer Key and the Consumer Secret into the `config.json` file.
+Set a name, an URL (could be your Twitter URL/Youtube channel) and a description. Next, go to the 'Keys and Access Tokens' tab and copy the Consumer Key and the Consumer Secret into the `config.json` file.
 
-Next, scroll down and click on 'Create my access token'. Finally, copy the Access Token and the Access Token Secret into the config file.
+Finally, scroll down and click on 'Create my access token'. Then, copy the Access Token and the Access Token Secret into the config file.
 
-Having problems? Check out the official [Twitter guide](https://dev.twitter.com/oauth/overview/application-owner-access-tokens) on application owner access tokens.
+Having problems? Check out the official Twitter guide on [application owner access tokens](https://dev.twitter.com/oauth/overview/application-owner-access-tokens).
 
-### Basic params
+### Basic config values
 
-| Prop              | Type        | Default                                      | Description                                                                                                 |
-| :---------------: | :---------: | :------------------------------------------: | :---------------------------------------------------------------------------------------------------------- |
-| **`description`** | `{String}`  | `Your Twitter bio goes here. Subs: %ytSubs%` | The description with variables that will be replaced.                                                       |
-| **`debug`**       | `{Boolean}` | `true`                                       | Whether to print additional info to the console.                                                            |
-| **`interval`**    | `{Number}`  | `60000`                                      | The variable update interval in milliseconds. A low value *isn't* recommended as you will get rate limited. |
+| Prop              | Type        | Default                                      | Description                                                                                                   |
+| :---------------: | :---------: | :------------------------------------------: | :------------------------------------------------------------------------------------------------------------ |
+| **`description`** | `{String}`  | `Your Twitter bio goes here. Subs: %ytSubs%` | The description with variables that will be replaced.                                                         |
+| **`debug`**       | `{Boolean}` | `true`                                       | Whether to print additional info to the console.                                                              |
+| **`interval`**    | `{Number}`  | `60000`                                      | The variable update interval in milliseconds. A low value **isn't** recommended as you will get rate limited. |
 
 ### Modules
 
