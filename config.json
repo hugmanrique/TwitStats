@@ -7,7 +7,7 @@
   },
   "description": "Your Twitter bio goes here. Subs: %ytSubs%",
   "debug": true,
-  "interval": 30000,
+  "interval": 60000,
   "modules": {
     "youtube": {
       "enabled": true,
