@@ -56,9 +56,7 @@ const update = () => {
       });
     })
   )
-    .then(() => {
-      return updateDescription();
-    })
+    .then(updateDescription)
     .then(() => {
       // TODO Add debug mode
       logger.debug('Updated');
