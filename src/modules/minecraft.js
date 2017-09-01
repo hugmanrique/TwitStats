@@ -5,27 +5,39 @@ class MCModule extends Module {
   newData() {
     const { address, port, timeout } = this.config;
 
-    return new Promise((res, rej) => {
+    return new Promise(res => {
       return mcping(
         address,
         port,
         (err, data) => {
           if (err) {
-            return rej(err);
+            return sendOffline(res);
           }
 
+          const version = data.version.name;
           const { max, online } = data.players;
 
-          return {
+          this.lastVersion = version;
+
+          res({
             mcPlayers: online,
             mcMax: max,
             // Shouldn't be used, includes §
             mcMotd: data.text,
-            mcVersion: data.version.name
-          };
+            mcVersion: version
+          });
         },
         timeout
       );
+    });
+  }
+
+  sendOffline(res) {
+    res({
+      mcPlayers: 0,
+      mcMax: 0,
+      mcMotd: '',
+      mcVersion: this.lastVersion || '1.8.8'
     });
   }
 }

@@ -65,6 +65,21 @@ In order to get your Channel ID, you need to access [youtube.com/account_advance
 | **`ytComments`** | `{Number}` | Total sum of all comments left on all your videos. |
 | **`ytVideos`**   | `{Number}` | Number of videos uploaded to your channel.         |
 
+#### Minecraft Server Ping
+
+Gets basic Minecraft server information by pinging the server. TwitStats uses [mc-ping-updated](https://www.npmjs.com/package/mc-ping-updated) on the back, so it supports Protocol >= 47.
+
+You will need to set the `address` to the hostname or IP, the `port` and the timeout (time to wait for a failed ping) which defaults to 3 seconds.
+
+##### Variables
+
+| Variable        | Type       | Description                                                          |
+| :-------------: | :--------: | :------------------------------------------------------------------- |
+| **`mcPlayers`** | `{Number}` | Online player count of the server.                                   |
+| **`mcMax`**     | `{Number}` | Total capacity this server has.                                      |
+| **`mcMotd`**    | `{String}` | MOTD of the server (includes color codes, avoid using this variable) |
+| **`mcVersion`** | `{String}` | Fancy version code (`1.x.x`) this server is running.                 |
+
 ## 🏓 Initialization
 
 In order to start up TwitStats, create a `screen` or `tmux` session (I recommend checking out the [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-screen-on-an-ubuntu-cloud-server)'s tutorial on how to install `screen`) with `screen -S twitstats`.
