@@ -58,7 +58,6 @@ const update = () => {
   )
     .then(updateDescription)
     .then(() => {
-      // TODO Add debug mode
       logger.debug('Updated');
     })
     .catch(err => {
