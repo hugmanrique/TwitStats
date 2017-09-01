@@ -9,19 +9,26 @@ module.exports = class YoutubeModule extends Module {
     return request
       .get({
         url: 'https://www.googleapis.com/youtube/v3/channels',
-        form: {
+        qs: {
           id,
           key: apiKey,
-          part: 'statistics'
+          part: 'statistics',
+          maxResults: 1
         }
       })
       .then(data => {
+        if (!data.items.length) {
+          this.disable('Invalid channel ID');
+        }
+
+        const item = data.items[0];
+
         const {
           viewCount,
           commentCount,
           subscriberCount,
           videoCount
-        } = data.statistics;
+        } = item.statistics;
 
         return {
           ytSubs: subscriberCount,

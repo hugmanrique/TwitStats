@@ -1,9 +1,14 @@
 class Module {
   constructor(config) {
+    this.enabled = true;
     this.config = config;
   }
 
   update() {
+    if (!this.enabled) {
+      return Promise.reject();
+    }
+
     return this.newData().catch(err => {
       console.error('Error updating module data:', err);
     });
@@ -15,6 +20,12 @@ class Module {
    */
   newData() {
     return Promise.resolve();
+  }
+
+  disable(message = 'Unknown error') {
+    this.enabled = false;
+
+    throw new Error(message);
   }
 }
 

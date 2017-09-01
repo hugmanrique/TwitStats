@@ -1,6 +1,8 @@
 // TODO Change by config.json
-const config = require('../config.prod.json');
+const logger = require('./logger');
 const twitter = require('./twitter');
+
+const config = require('../config.prod.json');
 
 const modules = [];
 
@@ -8,16 +10,23 @@ const description = config.description;
 const variables = {};
 
 const init = () => {
+  logger.init(config.debug);
+
   twitter.init(config.twitter);
 
   initModules();
+  // A Star. Turns out I create, break and fix things. Bugs occassionally included
+
+  setInterval(update, config.interval);
+
+  update();
 };
 
 const initModules = () => {
-  const { modules } = config;
+  const { modules: mods } = config;
 
-  Object.keys(modules).forEach(name => {
-    const config = modules[name];
+  Object.keys(mods).forEach(name => {
+    const config = mods[name];
 
     if (!config.enabled) {
       return;
@@ -26,6 +35,8 @@ const initModules = () => {
     const Module = require('./modules/' + name);
 
     modules.push(new Module(config));
+
+    logger.debug(`Created ${name} module`);
   });
 };
 
@@ -46,7 +57,7 @@ const update = () => {
     })
     .then(() => {
       // TODO Add debug mode
-      console.log('Updated');
+      logger.debug('Updated');
     })
     .catch(err => {
       console.error('Error updating variables:', err);

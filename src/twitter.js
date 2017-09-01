@@ -1,7 +1,11 @@
+const logger = require('./logger');
 const Twitter = require('twitter');
+
 let client;
 
 exports.init = config => {
+  logger.debug('Creating Twitter client');
+
   client = new Twitter(config);
 };
 
