@@ -11,3 +11,7 @@ exports.debug = message => {
 
   console.log(message);
 };
+
+exports.warn = message => {
+  console.warn(message);
+};

@@ -2,7 +2,7 @@
 const logger = require('./logger');
 const twitter = require('./twitter');
 
-const config = require('../config.prod.json');
+const config = require('../config.json');
 
 const modules = [];
 
@@ -12,13 +12,17 @@ const variables = {};
 const init = () => {
   logger.init(config.debug);
 
+  const limit = twitter.descLimit;
+
+  if (description.length > limit) {
+    logger.warn(`Description will probably be too long (>${limit})`);
+  }
+
   twitter.init(config.twitter);
 
   initModules();
-  // A Star. Turns out I create, break and fix things. Bugs occassionally included
 
   setInterval(update, config.interval);
-
   update();
 };
 

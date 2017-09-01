@@ -10,6 +10,10 @@ exports.init = config => {
 };
 
 exports.updateDesc = value => {
+  if (value.length > exports.descLimit) {
+    return Promise.reject('Description was too long, ignored change');
+  }
+
   return new Promise((res, rej) => {
     client.post(
       'account/update_profile',
@@ -27,3 +31,5 @@ exports.updateDesc = value => {
     );
   });
 };
+
+exports.descLimit = 160;

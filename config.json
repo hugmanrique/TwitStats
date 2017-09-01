@@ -5,14 +5,14 @@
     "access_token_key": "",
     "access_token_secret": ""
   },
-  "description": "A Star. Turns out I create, break and fix things. %ytSubs%",
+  "description": "Your Twitter bio goes here. Subs: %ytSubs%",
   "debug": true,
   "interval": 30000,
   "modules": {
     "youtube": {
       "enabled": true,
       "apiKey": "",
-      "id": "UC_x5XG1OV2P6uZZ5FSM9Ttw"
+      "id": "UC7QQkGT9BKVzqsBoQv7z29w"
     }
   }
 }
