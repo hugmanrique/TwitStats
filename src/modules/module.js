@@ -13,7 +13,7 @@ class Module {
 
   /**
    * To be overriden by classes, returns a Promise that resolves with
-   * a single value or rejects if an error occurs.
+   * a single value/object or rejects if an error occurs.
    */
   newData() {
     return Promise.resolve();

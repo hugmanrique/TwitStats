@@ -4,14 +4,14 @@ const request = require('request-promise-native').defaults({ json: true });
 
 module.exports = class YoutubeModule extends Module {
   newData() {
-    const { id, token } = this.config;
+    const { id, apiKey } = this.config;
 
     return request
       .get({
         url: 'https://www.googleapis.com/youtube/v3/channels',
-        headers: {},
         form: {
           id,
+          key: apiKey,
           part: 'statistics'
         }
       })
