@@ -10,10 +10,18 @@ You will need to install `git` from [git-scm.com](https://git-scm.com/downloads)
 
 Next, install Node.js from [here](https://nodejs.org/en/download/current/) (This project requires the latest current version, LTS support isn't guaranteed).
 
-Once you're done, you can install TwitStats by cloning this repo:
+Once you're done, you can install TwitStats by cloning this repo and installing the dependencies:
 
 ```
-git clone https://github.com/hugmanrique/Emjr.git
+git clone https://github.com/hugmanrique/TwitStats.git
+
+cd TwitStats
+
+# with npm (use this if you aren't sure)
+npm i
+
+# with yarn
+yarn
 ```
 
 ## 📐 Configuration
