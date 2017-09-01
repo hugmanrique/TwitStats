@@ -1,0 +1,22 @@
+{
+  "name": "twit-stats",
+  "version": "1.0.0",
+  "description": "Add real-time stats to your Twitter bio",
+  "license": "MIT",
+  "repository": "hugmanrique/TwitStats",
+  "author": {
+    "name": "Hugo Manrique",
+    "url": "https://hugmanrique.me",
+    "email": "npm@hugmanrique.me"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "request-promise-native": "^1.0.4",
+    "twitter": "^1.7.1"
+  }
+}
