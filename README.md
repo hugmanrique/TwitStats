@@ -1,4 +1,4 @@
-# 🐝 TwitStats
+# 🐦 TwitStats
 [![license][license]][LICENSE]
 [![deps][deps]][deps-url]
 
