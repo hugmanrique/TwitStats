@@ -3,17 +3,15 @@ class Module {
     this.config = config;
   }
 
-  update(callback) {
-    this.newData()
-      .then(callback)
-      .catch(err => {
-        console.error('Error updating module data:', err);
-      });
+  update() {
+    return this.newData().catch(err => {
+      console.error('Error updating module data:', err);
+    });
   }
 
   /**
-   * To be overriden by classes, returns a Promise that resolves with
-   * a single value/object or rejects if an error occurs.
+   * To be overriden by classes, returns a Promise that resolves
+   * with an object or rejects if an error occurs.
    */
   newData() {
     return Promise.resolve();
