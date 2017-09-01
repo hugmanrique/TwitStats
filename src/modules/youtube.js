@@ -2,7 +2,7 @@ const Module = require('./module');
 
 const request = require('request-promise-native').defaults({ json: true });
 
-module.exports = class YoutubeModule extends Module {
+class YoutubeModule extends Module {
   newData() {
     const { id, apiKey } = this.config;
 
@@ -38,4 +38,6 @@ module.exports = class YoutubeModule extends Module {
         };
       });
   }
-};
+}
+
+module.exports = YoutubeModule;

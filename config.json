@@ -13,6 +13,12 @@
       "enabled": true,
       "apiKey": "",
       "id": "UC7QQkGT9BKVzqsBoQv7z29w"
+    },
+    "minecraft": {
+      "enabled": true,
+      "address": "mc.hypixel.net",
+      "port": 25565,
+      "timeout": 3000
     }
   }
 }
