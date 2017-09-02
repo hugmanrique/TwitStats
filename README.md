@@ -80,6 +80,26 @@ You will need to set the `address` to the hostname or IP, the `port` and the tim
 | **`mcMotd`**    | `{String}` | MOTD of the server (includes color codes, avoid using this variable) |
 | **`mcVersion`** | `{String}` | Fancy version code (`1.x.x`) this server is running.                 |
 
+#### Twitch
+
+Twitch requires a valid registered API application. To create one, head to [dev.twitch.tv/dashboard/apps](https://dev.twitch.tv/dashboard/apps) and register a new application (if it's your first time on dev.twitch.tv, you will be asked to authorize access to your account). Set the app's name to `TwitStats` and the URL to `http://localhost`. Once the app is created, copy the Client ID into the config file and click on `New Secret`. Then, copy the client secret into the config too.
+
+The process of getting your own Channel ID is more complicated. First, load up your channel page (`https://twitch.tv/<username>`), next, right click on your profile picture and then click on `Inspect element`. A window will open with an `<img>` tag highlighted. Move up to the element parent and check the `data-id` attribute. Here's an example:
+
+![Chrome developer tools element inspector](https://i.imgur.com/rCXQYAR.png)
+
+In this case, the channel ID would be `44322889`.
+
+Once you have it, paste it into your config file.
+
+##### Variables
+
+| Variable            | Type       | Description                                        |
+| :-----------------: | :--------: | :------------------------------------------------- |
+| **`twitchFollows`** | `{Number}` | Number of follows this channel has.                |
+| **`twitchViews`**   | `{Number}` | Total number of views of this channel.             |
+| **`twitchGame`**    | `{String}` | Currently playing game set by the channel's owner. |
+
 ## 🏓 Initialization
 
 In order to start up TwitStats, create a `screen` or `tmux` session (I recommend checking out the [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-screen-on-an-ubuntu-cloud-server)'s tutorial on how to install `screen`) with `screen -S twitstats`.

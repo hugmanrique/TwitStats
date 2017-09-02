@@ -20,28 +20,33 @@ const init = () => {
 
   twitter.init(config.twitter);
 
-  initModules();
-
-  setInterval(update, config.interval);
-  update();
+  initModules().then(() => {
+    setInterval(update, config.interval);
+    update();
+  });
 };
 
 const initModules = () => {
   const { modules: mods } = config;
 
-  Object.keys(mods).forEach(name => {
-    const config = mods[name];
+  return Promise.all(
+    Object.keys(mods).map(name => {
+      const config = mods[name];
 
-    if (!config.enabled) {
-      return;
-    }
+      if (!config.enabled) {
+        return;
+      }
 
-    const Module = require('./modules/' + name);
+      const Module = require('./modules/' + name);
+      const instance = new Module(config);
 
-    modules.push(new Module(config));
+      modules.push(instance);
 
-    logger.debug(`Created ${name} module`);
-  });
+      logger.debug(`Created ${name} module`);
+
+      return instance.load();
+    })
+  );
 };
 
 const update = () => {

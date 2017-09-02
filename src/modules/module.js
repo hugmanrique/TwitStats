@@ -4,6 +4,8 @@ class Module {
     this.config = config;
   }
 
+  load() {}
+
   update() {
     if (!this.enabled) {
       return Promise.reject();

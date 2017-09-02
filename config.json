@@ -19,6 +19,12 @@
       "address": "mc.hypixel.net",
       "port": 25565,
       "timeout": 3000
+    },
+    "twitch": {
+      "enabled": true,
+      "clientId": "",
+      "clientSecret": "",
+      "channelId": ""
     }
   }
 }
